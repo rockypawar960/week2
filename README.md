@@ -84,13 +84,6 @@ updatedAt: "2025-01-01T00:00:00Z"
 - **Separation of Concerns**: UI, storage, utils, app logic
 - **Reactive Updates**: Single source of truth (tasks array)
 
-## Screenshots
-
-[Placeholder: Desktop Light Theme]
-[Placeholder: Desktop Dark Theme]
-[Placeholder: Mobile View]
-[Placeholder: Drag & Drop]
-
 
 ## Testing & Validation
 
