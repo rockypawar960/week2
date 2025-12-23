@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Task Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+    <div class="container" id="appContainer">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">Task Manager</h1>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </header>
+
+        <!-- Add Task Form -->
+        <form class="add-task-form" id="addTaskForm">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    class="task-input" 
+                    placeholder="Add a new task..." 
+                    maxlength="100"
+                    required
+                >
+                <button type="submit" class="add-btn" id="addBtn">
+                    Add
+                </button>
+            </div>
+            <div class="error-message" id="errorMessage" role="alert"></div>
+        </form>
+
+        <!-- Statistics -->
+        <section class="stats-section">
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalTasks">0</span>
+                    <span class="stat-label">Total</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="activeTasks">0</span>
+                    <span class="stat-label">Active</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="completedTasks">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <nav class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+            <button class="filter-btn clear-btn" id="clearCompletedBtn">Clear Completed</button>
+        </nav>
+
+        <!-- Tasks List -->
+        <main class="tasks-section">
+            <ul class="tasks-list" id="tasksList" aria-live="polite">
+                <!-- Tasks will be rendered here dynamically -->
+            </ul>
+            <div class="empty-state" id="emptyState">
+                <p>No tasks yet. Add one above! 🎯</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

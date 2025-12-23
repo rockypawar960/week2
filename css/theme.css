@@ -1,0 +1,156 @@
+/* CSS Custom Properties for Theming */
+:root {
+    /* Light Theme (Default) */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #f1f5f9;
+    
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-inverted: #ffffff;
+    
+    --primary-color: #3b82f6;
+    --primary-color-transparent: rgba(59, 130, 246, 0.1);
+    
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    
+    --danger-color-transparent: rgba(239, 68, 68, 0.1);
+    --warning-color-transparent: rgba(245, 158, 11, 0.1);
+    
+    --border-color: #e2e8f0;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+    
+    --error-color: #ef4444;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-inverted: #0f172a;
+    
+    --primary-color: #60a5fa;
+    --primary-color-transparent: rgba(96, 165, 250, 0.2);
+    
+    --success-color: #34d399;
+    --warning-color: #fbbf24;
+    --danger-color: #f87171;
+    
+    --danger-color-transparent: rgba(248, 113, 113, 0.2);
+    --warning-color-transparent: rgba(251, 191, 36, 0.2);
+    
+    --border-color: #475569;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.3);
+    
+    --error-color: #f87171;
+}
+
+/* Apply background colors */
+body {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    background: var(--bg-primary);
+    box-shadow: var(--shadow);
+    border-radius: 24px;
+}
+
+/* Theme-aware component styles */
+.stat-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.task-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+}
+
+.task-item.complete {
+    opacity: 0.7;
+    background: var(--bg-tertiary);
+}
+
+.task-checkbox {
+    background: transparent;
+    border-color: var(--text-secondary);
+}
+
+.task-checkbox.checked {
+    background: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.add-btn {
+    background: var(--primary-color);
+    color: var(--text-inverted);
+}
+
+.add-btn:hover {
+    background: color-mix(in srgb, var(--primary-color) 90%, black);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: var(--text-inverted);
+    border-color: var(--primary-color);
+}
+
+.task-input {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.task-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.task-content.editing input {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+}
+
+/* Theme toggle animations */
+.theme-toggle {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-light);
+}
+
+[data-theme="dark"] .theme-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive theme adjustments */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-tertiary: #334155;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-inverted: #0f172a;
+        --primary-color: #60a5fa;
+        --border-color: #475569;
+    }
+}
